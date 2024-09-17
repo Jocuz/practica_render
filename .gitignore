@@ -1,0 +1,12 @@
+image: gitpod/workspace-full:latest 
+tasks:
+  - init: |
+      sudo apt-get update
+      sudo apt-get install -y php php-cli php-mysql php-xml
+      composer install
+  - command: |
+        php -S 0.0.0.0:8000 -t public
+
+ports:
+  - port: 8000
+    onOpen: open-preview
